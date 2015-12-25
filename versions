@@ -1,0 +1,5 @@
+versions
+angular 1.2.16
+node	0.10.25
+express 4.2.0
+mongodb 2.4.1
