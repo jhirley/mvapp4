@@ -1,0 +1,25 @@
+doctype
+html
+	block head
+	head
+		block favicon
+			link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
+		//- bower:css
+		link(rel='stylesheet', href='/vendor/toastr/toastr.css')
+		link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.css')
+		//- endbower
+        //- bower:js
+        script(src='/vendor/jquery/jquery.js')
+        script(src='/vendor/toastr/toastr.js')
+        script(src='/vendor/angular/angular.js')
+        script(src='/vendor/angular-resource/angular-resource.js')
+        script(src='/vendor/angular-route/angular-route.js')
+        script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+        script(src='/vendor/angular-mocks/angular-mocks.js')
+        //- endbower
+        //- inject:css
+        //- endinject
+        //- inject:js
+        //- endinject
+	body
+		h1 hello kari

@@ -1,0 +1,27 @@
+{
+  "name": "code4",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Jhirley <jhirley.fonte@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jhirley/mvapp4",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "toastr": "~2.0.1",
+    "angular": "~1.2.0",
+    "angular-resource": "~1.2.0",
+    "angular-route": "~1.2.0",
+    "bootstrap": "~3.0.2",
+    "angular-mocks": "~1.2.0"
+  }
+}
