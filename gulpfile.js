@@ -40,14 +40,14 @@ gulp.task('inject', function () {
     var options = {
         verbose: true,
         bowerJson: require('./bower.json'),
-        directory: './public/lib',
+        directory: './public/vendor',
         ignorePath: '../../public'
     };
 
-    return gulp.src('./src/views/*.ejs')
+    return gulp.src(['./server/views/*.jade','./server/includes/*.jade'] )
         .pipe(wiredep(options))
         .pipe(inject(injectSrc, injectOptions))
-        .pipe(gulp.dest('./src/views'));
+        .pipe(gulp.dest('./server/**'));
 });
 
 gulp.task('nodemon', ['style', 'inject'], function () {

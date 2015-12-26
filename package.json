@@ -4,13 +4,15 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "jade": "~0.35.0",
+    "body-parser": "^1.14.2",
     "express": "~3.4.4",
-    "stylus": "~0.40.2",
+    "jade": "~0.35.0",
     "mongoose": "~3.8.0",
+    "morgan": "^1.6.1",
+    "passport": "~0.1.17",
     "passport-local": "~0.1.6",
-    "passport": "~0.1.17"
-    },
+    "stylus": "~0.40.2"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-inject": "^3.0.0",
