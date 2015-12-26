@@ -15,7 +15,7 @@ var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var nodemon = require('gulp-nodemon');
 
-var jsFiles = ['*.js', 'public/**/*.js', '!public/vendor/**/*.js', 'server/**/*.js'];
+var jsFiles = ['*.js', 'public/**/*.js', 'server/**/*.js', '!public/vendor/**/*.js'];
 
 gulp.task('style', function () {
     gulp.src(jsFiles)
@@ -31,7 +31,8 @@ gulp.task('inject', function () {
     var inject = require('gulp-inject');
 
     var injectSrc = gulp.src(['./public/css/*.css',
-                             './public/js/*.js'], {
+                             './public/js/*.js'
+                             ,'./public/app/**/*.js'], {
         read: false
     });
     var injectOptions = {
@@ -44,10 +45,10 @@ gulp.task('inject', function () {
         ignorePath: '../../public'
     };
 
-    return gulp.src(['./server/views/*.jade','./server/includes/*.jade'] )
+    return gulp.src(['./server/includes/*.jade']) //,'./server/**/*.jade'] )
         .pipe(wiredep(options))
         .pipe(inject(injectSrc, injectOptions))
-        .pipe(gulp.dest('./server/**'));
+        .pipe(gulp.dest('./server/includes/'));
 });
 
 gulp.task('nodemon', ['style', 'inject'], function () {
