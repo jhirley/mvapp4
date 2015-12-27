@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'decelopment';
 var app = express();
-var port = 3030;
+
 
 function compile (str, path) {
 	return stylus(str).set('filename', path);
@@ -27,7 +27,30 @@ app.use(stylus.middleware (
 ));
 app.use(express.static( __dirname + '/public'));
 
-mongoose.connect('mongodb://localhost/mv');
+/*
+db.createUser(
+    {
+      user: "user",
+      pwd: "dbpassword-changemeNOW",
+      roles: [
+         { role: "readWrite", db: "mv" }
+    ]})	
+*/
+
+var	mongodbServer = 'ds051933.mongolab.com:51933';
+var	mongodbName	= 'mv';
+var dbuser = 'user';
+var dbpassword = 'dbpassword-changemeNOW';
+
+var server;
+
+if (env ==='development'){	//jf if we are in dev use local host for server.
+	mongodbServer = 'localhost';
+}
+
+
+//mongoose.connect('mongodb://localhost/mv');
+mongoose.connect('mongodb://'+dbuser+':'+dbpassword+'@'+mongodbServer+'/'+mongodbName);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connecton error...'));
 db.once('open', function callback() {
@@ -51,5 +74,6 @@ app.get('*', function (req, res ){
 	});
 });
 
+var port = process.env.port || 3030;
 app.listen(port);
 console.log('listening to port ' + port + '...');
