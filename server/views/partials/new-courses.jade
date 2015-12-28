@@ -1,0 +1,9 @@
+//- new-courses.jade
+
+.panel.panel-primary
+	h4 new-courses.jade
+	.panel-heading.text-center New Courses
+	.panel-body 
+		.row(ng-repeat="course in courses | orderBy: '-published' | limitTo : 10")
+			.col-md-3 {{course.published | date:'yyyy MMM d'}}
+			.col-md-9 {{course.name}}
