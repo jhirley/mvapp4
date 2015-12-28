@@ -11,6 +11,7 @@
     "morgan": "^1.6.1",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
+    "path": "^0.12.7",
     "stylus": "~0.40.2"
   },
   "devDependencies": {
@@ -26,10 +27,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines" : {
-    "node" : "4.2.x",
-    "npm" : "3.5.x"
-    },
+  "engines": {
+    "node": "4.2.x",
+    "npm": "3.5.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jhirley/mvapp4.git"
