@@ -18,7 +18,7 @@ passport.use(new LocalStrategy(
 	function (username, password, done) {
 		User.findOne({username:username}).exec(function (err, user){
 			console.log('server.js '+ user);
-			if ( user ) {
+			if ( user && user.authenticate(password)) {
 				console.log('server.js passport.use working');
 				return done(null, user);
 			} else {
