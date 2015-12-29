@@ -25,6 +25,7 @@ db.createUser(
 		, username : String
 		, salt: String
 		, hashed_pwd: String
+		, roles: [String]
 	});
 
 	userSchema.methods = {
@@ -41,7 +42,7 @@ db.createUser(
 
 			salt = createSalt();
 			hash = hashPwd(salt, 'joe');
-			User.create({firstName: 'Joe', lastName : 'Eames', username : 'joe', salt: salt, hashed_pwd: hash});
+			User.create({firstName: 'Joe', lastName : 'Eames', username : 'joe', salt: salt, hashed_pwd: hash, roles: ['admin']});
 			salt = createSalt();
 			hash = hashPwd(salt, 'john');
 			User.create({firstName:'John', lastName:'Papa', username: 'john', salt: salt, hashed_pwd: hash});

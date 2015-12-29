@@ -15,8 +15,9 @@ app.post('/logout', function (req, res) {
 
 
 	app.get('*', function (req, res ){
+		console.log('routes.js req.user ' + req.user);
 		res.render('index', {
-			
+			bootstrappedUser : req.user
 		});
 	});
 };
