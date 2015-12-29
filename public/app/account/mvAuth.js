@@ -1,6 +1,7 @@
 angular.module('app').factory('mvAuth', function ($http, mvIdentity, $q) {
 	return {
 		authenticateUser : function(username, password) {
+			console.log('mvAuth.js '+ username + ' ' + password);
 			var dfd = $q.defer();
 			$http.post('/login', {username: username, password: password}).then( function (response){
 				console.log(response.data);

@@ -1,5 +1,4 @@
 //server.js
-
 var express = require('express');
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -18,6 +17,7 @@ var User = mongoose.model('User');
 passport.use(new LocalStrategy(
 	function (username, password, done) {
 		User.findOne({username:username}).exec(function (err, user){
+			console.log('server.js '+ user);
 			if ( user ) {
 				console.log('server.js passport.use working');
 				return done(null, user);

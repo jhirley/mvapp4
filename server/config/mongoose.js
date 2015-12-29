@@ -15,7 +15,7 @@ db.createUser(
 	var db = mongoose.connection;
 	db.on('error', console.error.bind(console, 'connecton error...'));
 	db.once('open', function callback() {
-		console.log('mv db opened ..');
+		console.log(config.mongodbName+' db opened...');
 	});
 
 	var userSchema = mongoose.Schema({
@@ -29,8 +29,8 @@ db.createUser(
 	User.find({}).exec(function (err, collection) {
 		if (collection.length === 0) {
 			User.create({firstName: 'Joe', lastName : 'Eames', username : 'joe'});
+			User.create({firstName:'John', lastName:'Papa', username: 'john'});
+			User.create({firstName:'Dan', lastName:'Wahlin', username: 'dan'});
 		}
 	});
-
-
 };
