@@ -18,4 +18,19 @@ db.createUser(
 		console.log('mv db opened ..');
 	});
 
+	var userSchema = mongoose.Schema({
+		firstName: String
+		, lastName : String
+		, username : String
+	});
+
+	var User = mongoose.model('User', userSchema);
+
+	User.find({}).exec(function (err, collection) {
+		if (collection.length === 0) {
+			User.create({firstName: 'Joe', lastName : 'Eames', username : 'joe'});
+		}
+	});
+
+
 };
