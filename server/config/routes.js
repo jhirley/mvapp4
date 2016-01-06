@@ -3,6 +3,9 @@ var auth = require('./auth');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var users = require('../controllers/users');
+var courses = require('../controllers/courses');
+
+
 
 
 module.exports = function ( app ) {
@@ -10,6 +13,8 @@ module.exports = function ( app ) {
 	app.get('/api/users', auth.requiresRole('admin'), users.getUsers);
 	app.post('/api/users', users.createUser);
 	app.put('/api/users', users.updateUser);
+	app.get('/api/courses', courses.getCourses);
+
 
 	app.get('/partials/*', function (req, res ) {
 		res.render('../../public/app/' + req.params[0]);
@@ -22,9 +27,12 @@ app.post('/logout', function (req, res) {
 	res.end();
 });
 
+app.all('/api/*' , function (req, res) {
+	res.send(404);
+});
+
 
 	app.get('*', function (req, res ){
-		console.log('routes.js req.user ' + req.user);
 		res.render('index', {
 			bootstrappedUser : req.user
 		});

@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var userModel = require('../models/User');
+var courseModel = require('../models/Course');
+
+
 
 module.exports = function (config) {
 	/*
@@ -20,6 +23,7 @@ db.createUser(
 	});
 
 	userModel.createDefaultUsers();
+	courseModel.createDefaultCourses();
 	
 };
 
