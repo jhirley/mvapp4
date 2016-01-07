@@ -1,4 +1,10 @@
-angular.module('app').controller('mvCourseDetailsCtrl', function ($scope, mvCourse, $routeParams) {
-	$scope.course = mvCourse.get({_id:$routeParams.id});
-	console.log('mvCourseDetailsCtrl is running')
+angular.module('app').controller('mvCourseDetailsCtrl', function ($scope, mvCachedCourses, $routeParams) {
+
+	mvCachedCourses.query().$promise.then(function (collection) {
+		collection.forEach(function(course) {
+			if(course._id === $routeParams.id) {
+				$scope.course = course;
+			}
+		});
+	});
 });
