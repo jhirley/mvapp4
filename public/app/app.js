@@ -43,7 +43,7 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
 			templateUrl: '/partials/courses/course-list'
 			, controller: 'mvCourseListCtrl'
 		} )
-		.when('/courses:id', {
+		.when('/courses/:id', {
 			templateUrl: '/partials/courses/course-details'
 			, controller: 'mvCourseDetailsCtrl'
 		} ) ;

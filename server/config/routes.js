@@ -1,4 +1,4 @@
-var express = require('express');
+
 var auth = require('./auth');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
@@ -14,6 +14,7 @@ module.exports = function ( app ) {
 	app.post('/api/users', users.createUser);
 	app.put('/api/users', users.updateUser);
 	app.get('/api/courses', courses.getCourses);
+	app.get('/api/courses/:id', courses.getCourseById);
 
 
 	app.get('/partials/*', function (req, res ) {
